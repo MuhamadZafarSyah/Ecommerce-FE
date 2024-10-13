@@ -3,7 +3,7 @@ import logo from "/src/img/logo_shoope.png";
 import { MdOutlineEmail, MdOutlineLock, MdOutlinePerson } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
-import Footer from "../../components/auth/footer";
+import Footer from "../../components/auth/Footer";
 import Input from "../../components/auth/Input";
 import Button from "../../components/auth/Button";
 import { Form, redirect } from "react-router-dom";
@@ -66,14 +66,14 @@ const RegisterPage = () => {
 
   return (
     <div
-      className={` flex items-center justify-center h-dvh ${
+      className={`flex h-dvh items-center justify-center ${
         isDarkMode ? "bg-secondary text-white" : "bg-whitemode text-black"
       }`}
     >
-      <div className="absolute top-4 right-4">
+      <div className="absolute right-4 top-4">
         <div
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className="center-center p-2 bg-gray-800 opacity-60 rounded-full"
+          className="center-center rounded-full bg-gray-800 p-2 opacity-60"
         >
           {!isDarkMode ? (
             <>
@@ -91,7 +91,7 @@ const RegisterPage = () => {
           <img
             src={logo}
             alt=""
-            className="w-1/4 mx-auto bg-blend-hard-light"
+            className="mx-auto w-1/4 bg-blend-hard-light"
           />
         </div>
 
@@ -152,8 +152,8 @@ const RegisterPage = () => {
           <div className="mt-4">
             <Button
               className={`${
-                isFormValid ? "bg-[#E24325] text-white" : "  cursor-not-allowed"
-              } w-full p-2 flex items-center justify-center`}
+                isFormValid ? "bg-[#E24325] text-white" : "cursor-not-allowed"
+              } flex w-full items-center justify-center p-2`}
               disabled={!isFormValid || isLoading}
             >
               {isLoading ? <ClipLoader size={20} color="white" /> : "Register"}
