@@ -1,10 +1,9 @@
 import { useContext, useState } from "react";
 import logo from "/src/img/logo_shoope.png";
-import Footer from "../../components/auth/footer";
 import { MdOutlineEmail, MdOutlineLock } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import Button from "../../components/auth/Button";
 import Input from "../../components/auth/Input";
 import customAPI from "../../api";
@@ -145,7 +144,14 @@ const LoginPage = () => {
           </div>
         </Form>
       </div>
-      <Footer type="login" />
+      <footer className="absolute bottom-0 flex h-12 w-full items-center justify-center text-center text-gray-400">
+        <span>
+          Belum punya akun?{" "}
+          <Link to="/register" className="text-blue-500">
+            Daftar
+          </Link>
+        </span>
+      </footer>
     </div>
   );
 };

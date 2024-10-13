@@ -3,10 +3,9 @@ import logo from "/src/img/logo_shoope.png";
 import { MdOutlineEmail, MdOutlineLock, MdOutlinePerson } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
-import Footer from "@/components/auth/footer";
 import Input from "../../components/auth/Input";
 import Button from "../../components/auth/Button";
-import { Form, redirect } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 import customAPI from "../../api";
 import { toast } from "react-toastify";
 import { registerUser, setLoading } from "../../features/userSlice";
@@ -161,7 +160,14 @@ const RegisterPage = () => {
           </div>
         </Form>
       </div>
-      <Footer type="register" />
+      <footer className="absolute bottom-0 flex h-12 w-full items-center justify-center text-center text-gray-400">
+        <span>
+          Sudah punya akun?{" "}
+          <Link to="/login" className="text-blue-500">
+            Login
+          </Link>
+        </span>
+      </footer>
     </div>
   );
 };
