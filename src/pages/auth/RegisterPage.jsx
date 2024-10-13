@@ -3,7 +3,7 @@ import logo from "/src/img/logo_shoope.png";
 import { MdOutlineEmail, MdOutlineLock, MdOutlinePerson } from "react-icons/md";
 import { RiEyeCloseLine } from "react-icons/ri";
 import { IoMdEye } from "react-icons/io";
-import Footer from "../../components/auth/Footer";
+import Footer from "@/components/auth/footer";
 import Input from "../../components/auth/Input";
 import Button from "../../components/auth/Button";
 import { Form, redirect } from "react-router-dom";
