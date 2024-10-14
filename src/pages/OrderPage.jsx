@@ -28,17 +28,26 @@ export const loader = (storage) => async () => {
     return redirect("/login");
   }
 
-  let products;
-  if (getUser.role == "user") {
-    const { data } = await customAPI.get("/order/current/user");
-    products = data.data;
-    return { products };
-  } else {
-    const { data } = await customAPI.get("/order");
-    products = data.data;
-    return { products };
+  try {
+    let products;
+    if (getUser.role == "user") {
+      const { data } = await customAPI.get("/order/current/user");
+      products = data.data;
+      return { products };
+    } else {
+      const { data } = await customAPI.get("/order");
+      products = data.data;
+      return { products };
+    }
+    return getUser;
+  } catch (error) {
+    const errorMessage = error?.response?.data?.message;
+    toast.error(errorMessage + ", Harap login!");
+    const unautharized = error?.response?.status === 401;
+    if (unautharized) {
+      return redirect("/login");
+    }
   }
-  return getUser;
 };
 
 function OrderPage() {

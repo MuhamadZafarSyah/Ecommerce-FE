@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Form, useNavigation } from "react-router-dom";
+import { Form, redirect, useNavigation } from "react-router-dom";
 import { DarkModeContext } from "../context/DarkMode";
 import HeaderCart from "../components/HeaderCart";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -34,11 +34,7 @@ const insertSnapScript = () => {
 const CheckoutPage = () => {
   const getUser = useSelector((state) => state.userState.user);
 
-  // if (!getUser) {
-  //   toast.warn("Login Terlebih Dahulu");
-  //   window.location.href = "/login";
-  // }
-
+  const navigate = useNavigate();
   const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
   const isLoadingRequest = useSelector((state) => state.userState.isLoading);
 
@@ -110,8 +106,13 @@ const CheckoutPage = () => {
     } catch (error) {
       const errorMessage = error?.response?.data?.message;
       toast.error(errorMessage);
+      const unautharized = error?.response?.status === 401;
+      if (unautharized) {
+        navigate("/login");
+        return redirect("/login");
+      }
     } finally {
-      state.dispatch(setLoading(false));
+      store.dispatch(setLoading(false));
     }
   };
 

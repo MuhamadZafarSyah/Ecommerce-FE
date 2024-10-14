@@ -23,8 +23,6 @@ function CartPage() {
     numItemsInCart: totalItem, //MENGGUNAKAN ALIS NYA, HARUSNYA YAND ADA DI STATE ADALAH NUMITEMSINCART TAPI JADI TOTALITEM
   } = useSelector((state) => state.cartState);
 
-  console.log(cartItems);
-
   return (
     <>
       {isLoading && (
