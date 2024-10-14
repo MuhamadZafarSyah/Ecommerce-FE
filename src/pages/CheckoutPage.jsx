@@ -32,7 +32,7 @@ const insertSnapScript = () => {
 };
 
 const CheckoutPage = () => {
-  // const getUser = useSelector((state) => state.userState.user);
+  const getUser = useSelector((state) => state.userState.user);
 
   // if (!getUser) {
   //   toast.warn("Login Terlebih Dahulu");
