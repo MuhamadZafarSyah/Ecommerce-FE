@@ -117,7 +117,7 @@ const DetailPage = () => {
         </div>
         <Drawer
           open={isOpen}
-          size={"40%"}
+          size={"39%"}
           onClose={toggleDrawer}
           direction="bottom"
           className="size-full h-full rounded-t-3xl"
